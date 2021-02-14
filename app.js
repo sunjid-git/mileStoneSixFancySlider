@@ -212,7 +212,6 @@ searchBtn.addEventListener('click', function () {
   sliders.length = 0;
 })
 
-
 sliderBtn.addEventListener('click', function () {
   createSlider()
 })
