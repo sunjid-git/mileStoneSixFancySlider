@@ -48,10 +48,25 @@ const selectItem = (event, img) => {
     sliders.push(img);
   } else {
     alert('Hey, Already added !')
+    
   }
+}
+
+// let slideIndex = 0;
+// const selectItem = (event, img) => {
+//   let element = event.target;
+//   element.classList.add('added');
+ 
+//   let item = sliders.indexOf(img);
+//   if (item === -1) {
+//     sliders.push(img);
+//   } else {
+//     alert('Hey, Already added !')
+    
+//   }
 
   
-}
+// }
 var timer
 const createSlider = () => {
  
@@ -122,6 +137,18 @@ searchBtn.addEventListener('click', function () {
   getImages(search.value)
   sliders.length = 0;
 })
+
+
+// keyboard action
+
+document.getElementById("search").addEventListener("keypress", function(event) {
+    if (event.key == 'Enter')   {
+      document.getElementById("search-btn").click();
+      // getImages(search.value)
+      // sliders.length = 0;
+    }
+});
+
 
 sliderBtn.addEventListener('click', function () {
   createSlider()
