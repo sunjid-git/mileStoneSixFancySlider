@@ -50,10 +50,11 @@ const getImages = (query) => {
 // //  slider select and deselect
 //   let item = sliders.indexOf(img);
 //   if (item === -1) {
-//     // element.classList.add('added');
+//     element.classList.add('added');
 //     sliders.push(img);
 //   } else{
-//     array.splice(index, 1); 
+//      element.classList.remove('added')
+//         sliders.pop(item);
 //   }
 // }
 
@@ -72,9 +73,6 @@ const selectItem = (event, img) => {
   }
 }
 
-
-
-// first backup============================================
 
 // let slideIndex = 0;
 // const selectItem = (event, img) => {
