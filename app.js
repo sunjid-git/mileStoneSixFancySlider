@@ -74,6 +74,10 @@ const selectItem = (event, img) => {
 }
 
 
+
+
+
+//  backup
 // let slideIndex = 0;
 // const selectItem = (event, img) => {
 //   let element = event.target;
@@ -109,9 +113,10 @@ const createSlider = () => {
   document.querySelector('.main').style.display = 'block';
   // hide image aria
   imagesArea.style.display = 'none';
-  let duration = document.getElementById('duration').value || 1500;
+  let duration = document.getElementById('duration').value || 1000;
+
   if(duration < 0){
-    duration = 1600;
+    duration = 1500;
   }
   
   sliders.forEach(slide => {
