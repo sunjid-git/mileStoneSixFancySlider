@@ -29,9 +29,14 @@ const showImages = (images) => {
     gallery.appendChild(div)
   })
 
+  toggleSpinner();
+
 }
 
 const getImages = (query) => {
+
+  toggleSpinner();
+
   fetch(`https://pixabay.com/api/?key=${KEY}=${query}&image_type=photo&pretty=true`)
     .then(response => response.json())
     .then(data => showImages(data.hits))
@@ -88,7 +93,11 @@ const createSlider = () => {
   document.querySelector('.main').style.display = 'block';
   // hide image aria
   imagesArea.style.display = 'none';
-  const duration = document.getElementById('duration').value || 1000;
+  const duration = document.getElementById('duration').value || 1500;
+  // if(duration < 0){
+  //  let newTime = duration*(-1);
+  // }
+  
   sliders.forEach(slide => {
     let item = document.createElement('div')
     item.className = "slider-item";
@@ -103,6 +112,50 @@ const createSlider = () => {
     changeSlide(slideIndex);
   }, duration);
 }
+
+// slider backup
+// var timer
+// const createSlider = () => {
+ 
+//   // check slider image length
+//   if (sliders.length < 2) {
+//     alert('Select at least 2 image.')
+//     return;
+//   }
+//   // crate slider previous next area
+//   sliderContainer.innerHTML = '';
+//   const prevNext = document.createElement('div');
+//   prevNext.className = "prev-next d-flex w-100 justify-content-between align-items-center";
+//   prevNext.innerHTML = ` 
+//   <span class="prev" onclick="changeItem(-1)"><i class="fas fa-chevron-left"></i></span>
+//   <span class="next" onclick="changeItem(1)"><i class="fas fa-chevron-right"></i></span>
+//   `;
+
+//   sliderContainer.appendChild(prevNext)
+//   document.querySelector('.main').style.display = 'block';
+//   // hide image aria
+//   imagesArea.style.display = 'none';
+//   const duration = document.getElementById('duration').value || 1500;
+//   if(duration < 0){
+//    const newTime = duration*(-1);
+//   }
+  
+//   sliders.forEach(slide => {
+//     let item = document.createElement('div')
+//     item.className = "slider-item";
+//     item.innerHTML = `<img class="w-100"
+//     src="${slide}"
+//     alt="">`;
+//     sliderContainer.appendChild(item)
+//   })
+//   changeSlide(0)
+//   timer = setInterval(function () {
+//     slideIndex++;
+//     changeSlide(slideIndex);
+//   }, duration);
+// }
+
+
 
 // change slider index 
 const changeItem = index => {
@@ -150,3 +203,12 @@ document.getElementById("search").addEventListener("keypress", function(event) {
 sliderBtn.addEventListener('click', function () {
   createSlider()
 })
+
+
+// loading spinner
+const toggleSpinner = () => {
+  const spinner = document.getElementById('loading-spinner');
+
+    spinner.classList.toggle('d-none');
+    
+}
