@@ -43,20 +43,38 @@ const getImages = (query) => {
     .catch(err => console.log(err))
 }
 
+// let slideIndex = 0;
+// const selectItem = (event, img) => {
+//   let element = event.target;
+ 
+// //  slider select and deselect
+//   let item = sliders.indexOf(img);
+//   if (item === -1) {
+//     // element.classList.add('added');
+//     sliders.push(img);
+//   } else{
+//     array.splice(index, 1); 
+//   }
+// }
+
+
 let slideIndex = 0;
 const selectItem = (event, img) => {
   let element = event.target;
+  element.classList.add('added');
  
-//  slider select and deselect
   let item = sliders.indexOf(img);
   if (item === -1) {
-    element.classList.add('added');
     sliders.push(img);
-  } else{
-    element.classList.remove('added');
-    sliders.pop(img);
+  } else {
+    element.classList.remove('added')
+    sliders.splice(item, 1); 
   }
 }
+
+
+
+// first backup============================================
 
 // let slideIndex = 0;
 // const selectItem = (event, img) => {
@@ -192,17 +210,16 @@ searchBtn.addEventListener('click', function () {
 })
 
 
-// keyboard action
-document.getElementById("search").addEventListener("keypress", function(event) {
-    if (event.key == 'Enter')   {
-      document.getElementById("search-btn").click();
-    }
-});
-
-
 sliderBtn.addEventListener('click', function () {
   createSlider()
 })
+
+// keyboard action
+document.getElementById("search").addEventListener("keypress", function(event) {
+  if (event.key == 'Enter')   {
+    document.getElementById("search-btn").click();
+  }
+});
 
 
 // loading spinner
