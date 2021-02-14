@@ -66,6 +66,7 @@ const selectItem = (event, img) => {
     
 //   }
 // }
+
 var timer
 const createSlider = () => {
  
