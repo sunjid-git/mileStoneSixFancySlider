@@ -93,10 +93,10 @@ const createSlider = () => {
   document.querySelector('.main').style.display = 'block';
   // hide image aria
   imagesArea.style.display = 'none';
-  const duration = document.getElementById('duration').value || 1500;
-  // if(duration < 0){
-  //  let newTime = duration*(-1);
-  // }
+  let duration = document.getElementById('duration').value || 1500;
+  if(duration < 0){
+    duration = 1600;
+  }
   
   sliders.forEach(slide => {
     let item = document.createElement('div')
@@ -208,7 +208,5 @@ sliderBtn.addEventListener('click', function () {
 // loading spinner
 const toggleSpinner = () => {
   const spinner = document.getElementById('loading-spinner');
-
-    spinner.classList.toggle('d-none');
-    
+  spinner.classList.toggle('d-none');
 }
